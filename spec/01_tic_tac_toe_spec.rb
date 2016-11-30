@@ -45,7 +45,6 @@ describe './lib/tic_tac_toe.rb' do
 
     it 'converts a user_input to an integer' do
       user_input = "1"
-
       expect(input_to_index(user_input)).to be_a(Integer)
     end
 
