@@ -38,12 +38,12 @@
         null,
         null,
         1,
-        25,
-        0,
+        null,
+        null,
         25,
         22,
-        3,
-        0,
+        null,
+        null,
         3,
         3,
         null,
@@ -195,6 +195,6 @@
         null
       ]
     },
-    "timestamp": 1482201532
+    "timestamp": 1482202047
   }
 }
