@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/tic_tac_toe'
+
+puts "Welcome to Tic Tac Toe!"
+board = Array.new(9, " ") #create array with 9 empty spaces
+
+play(board)
