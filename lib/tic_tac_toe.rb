@@ -44,7 +44,8 @@ def turn(board)
   input = gets.chomp
   input = input_to_index(input)
   if valid_move?(board, input)
-    move(board, input, user_char = "X")
+    user_char = current_player(board)
+    move(board, input, user_char)
     display_board(board)
   else
     turn(board)
@@ -106,4 +107,18 @@ def winner(board)
   else
     return nil
   end
+end
+
+def play(board)
+  until over?(board)
+  	turn(board)
+  end
+
+  if won?(board)
+  	win_player = winner(board)
+  	puts "Congratulations #{win_player}!"
+  elsif draw?(board)
+  	puts "Cats Game!"
+  end
+
 end
