@@ -9,8 +9,6 @@ WIN_COMBINATIONS = [
   [2, 4, 6] # Across right to left
 ]
 
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -24,7 +22,7 @@ def input_to_index(input)
   input -= 1
 end
 
-def move(board, index, player = "X")
+def move(board, index, player)
   board[index] = player
 end
 
@@ -41,14 +39,16 @@ def turn(board) # inception
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
-    move(board, index)
+    move(board, index, current_player(board))
     display_board(board)
   else
     turn(board)
   end
 end
 
-# #turn_count
+def turn_count(board)
+  (board.select {|location| location != "" && location != " "}).size
+end
 
 def current_player(board)
   turn_count(board) % 2 == 0 ? "X" : "O"
@@ -81,7 +81,7 @@ def draw?(board)
 end
 
 def over?(board)
-  won?(board) || draw?(board) || full?(board)
+  won?(board) || draw?(board)
 end
 
 def winner(board)
@@ -93,5 +93,17 @@ def winner(board)
     end
   else
     nil
+  end
+end
+
+def play(board)
+  until (over?(board))
+    turn(board)
+  end
+
+  if !draw?(board)
+    puts "Congratulations #{winner(board)}!"
+  else
+    puts "Cats Game!"
   end
 end
