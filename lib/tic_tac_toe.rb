@@ -113,7 +113,7 @@ end
 
 # Play the game
 def play(board)
-  until over?(board) || draw?(board)
+  while !over(board)
     turn(board)
   end
 
