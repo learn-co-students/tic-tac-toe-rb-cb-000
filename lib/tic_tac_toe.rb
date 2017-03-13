@@ -100,7 +100,7 @@ end
 
 # Check if game is over (won or full (draw))
 def over?(board)
-  won?(board) || full?(board)
+  won?(board) || draw?(board)
 end
 
 # Determine which player won
@@ -113,10 +113,9 @@ end
 
 # Play the game
 def play(board)
-  while !over(board)
+  while !over?(board)
     turn(board)
   end
-
   if won?(board)
     puts "Congratulations #{winner(board)}!"
   elsif draw?(board)
