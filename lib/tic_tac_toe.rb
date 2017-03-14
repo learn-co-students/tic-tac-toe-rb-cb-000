@@ -104,6 +104,6 @@ def play(board)
   if !draw?(board)
     puts "Congratulations #{winner(board)}!"
   else
-    puts "Cats Game!"
+    puts "Cats Game!" #Should be Cat's Game
   end
 end
