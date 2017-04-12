@@ -47,12 +47,13 @@ def turn(board)
   puts "Please enter 1-9"
   input = gets.strip
   index = input_to_index(input)
-   if valid_move?(board, index)
-     move(board, index, 'X' || 'O')
-     display_board(board)
-   else turn(board)
-     end
-   end
+  if valid_move?(board, index)
+   move(board, index, current_player(board))
+   display_board(board)
+ else
+   turn(board)
+  end
+end
 
 def turn_count(board)
   counter = 0
@@ -72,10 +73,10 @@ def current_player(board)
   end
 end
 
-def won?(board)
+def won?(board)  #  expected: at least 3 times with any arguments. Received: 2 times with any arguments
   WIN_COMBINATIONS.find do |win_combo|
-  board[win_combo[0]] == board[win_combo[1]] && board[win_combo[0]] == board[win_combo[2]] && position_taken?(board, win_combo[1])
-end
+    board[win_combo[0]] == board[win_combo[1]] && board[win_combo[0]] == board[win_combo[2]] && position_taken?(board, win_combo[1])
+  end
 end
 
 def full?(board)  #it will still return true because there will be empty spaces. Try checking if all positions are filled.
@@ -88,7 +89,6 @@ def draw?(board)
   !won?(board) && full?(board)
 end
 
-
 def winner(board)
   if won?(board) != nil
     winner = board[won?(board)[0]]
@@ -100,9 +100,18 @@ def over?(board)
 end
 
 def play(board)
-  input = gets.strip
-  i = 0
-  until i == 9
+  until over?(board) do
     turn(board)
   end
+if draw?(board)
+puts "Cats Game!"
+else
+  puts "Congratulations #{winner(board)}!"
 end
+end
+  # print "Congratulations #{current_player(board)}"
+
+
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+play(board)
