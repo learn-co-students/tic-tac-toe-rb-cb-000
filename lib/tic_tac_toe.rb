@@ -112,6 +112,6 @@ end
   # print "Congratulations #{current_player(board)}"
 
 
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
-play(board)
+# board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+#
+# play(board)
