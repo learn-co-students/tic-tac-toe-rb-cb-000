@@ -93,11 +93,15 @@ def draw?(board)
   !won?(board) && full?(board)
 end
 
+# def over?(board)
+#   if (won?(board) == true) || (draw?(board) == true) || (full?(board) == true)
+#     return true
+#   end
+#   return false
+# end
+
 def over?(board)
-  if (won?(board) == true) || (draw?(board) == true) || (full?(board) == true)
-    return true
-  end
-  return false
+  won?(board) || draw?(board)
 end
 
 def winner(board)
@@ -105,4 +109,15 @@ def winner(board)
     return board[won?(board)[0]]
   end
   return nil
+end
+
+def play(board)
+  while !over?(board)
+    turn(board)
+  end
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cats Game!"
+  end
 end
