@@ -122,3 +122,18 @@ def winner(board)
     # puts board[won?(board)[0]]
   end
 end
+
+def play(board)
+  # as long as the game isn't over, keeping playing turns. Stop playing turns when the game is over.
+  while !over?(board)
+    turn(board)
+  end
+
+  # if the game is over and won
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  # if the game is over and draw
+  elsif draw?(board)
+    puts "Cats Game!"
+  end
+end
