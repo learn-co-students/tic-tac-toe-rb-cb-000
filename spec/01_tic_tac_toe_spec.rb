@@ -263,3 +263,9 @@ describe './lib/tic_tac_toe.rb' do
     end
   end
 end
+
+def full?(board)
+  board.all? do |space|
+     space == "X" || space == "O"
+  end
+end
