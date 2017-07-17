@@ -63,14 +63,13 @@ def display_board(board=[" "," "," "," "," "," "," "," "," "])
  def turn(board)
    puts "Please enter 1-9:"
    input = gets.strip
-   input = input_to_index(input)
-   valid = valid_move?(board, input)
-   if valid == true
-     move(board, input, "X")
+   index = input_to_index(input)
+   if valid_move?(board, index)
+     move(board, index, current_player(board))
+
      display_board(board)
    else
-     puts "Please enter 1-9:"
-     input = gets.strip
+     turn(board)
  end
  end
  def turn_count(board)
@@ -144,17 +143,15 @@ def display_board(board=[" "," "," "," "," "," "," "," "," "])
      return board[won?(board)[1]]
    end
  end
+
 def play(board)
-  input = gets
-end
-def play(board)
- +   until over?(board)
- +     turn(board)
- +   end
- +
- +   if won?(board)
- +     puts "Congratulations #{(winner(board))}!"
- +   elsif draw?(board)
- +     puts "Cats Game!"
- +   end
- + end
+   until over?(board)
+     turn(board)
+      end
+
+    if won?(board)
+     puts "Congratulations #{(winner(board))}!"
+    elsif draw?(board)
+      puts "Cats Game!"
+    end
+  end
