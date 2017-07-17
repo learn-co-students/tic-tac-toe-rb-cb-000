@@ -37,6 +37,7 @@ describe './lib/tic_tac_toe.rb' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
       num_of_turns = 0
       allow($stdout).to receive(:puts)
+      puts "IN THIS TEST THIS IS SELF: #{self}"
       allow(self).to receive(:gets).and_return("1","2","3")
       allow(self).to receive(:over?).and_return(false, false, false, true)
       allow(self).to receive(:turn) do
