@@ -1,3 +1,13 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/tic_tac_toe'
+
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+empty_board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+x_win_diagonal = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
+o_win_center_column = ["X", "O", " ", " ", "O", " ", " ", "O", "X"]
+no_winner_board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
+
+puts "Welcome to Tic Tac Toe!"
+display_board(board)
+play(board)
