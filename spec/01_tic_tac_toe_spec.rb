@@ -197,10 +197,10 @@ describe './lib/tic_tac_toe.rb' do
       draw?(board)
     end
 
-    it 'calls full?' do 
+    it 'calls full?' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
 
-      expect(self).to receive(:full?).with(board)      
+      expect(self).to receive(:full?).with(board)
       draw?(board)
     end
 
@@ -243,23 +243,23 @@ describe './lib/tic_tac_toe.rb' do
     end
   end
 
-  describe '#winner' do
+  describe '#winner?' do
     it 'return X when X won' do
       board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
 
-      expect(winner(board)).to eq("X")
+      expect(winner?(board)).to eq("X")
     end
 
     it 'returns O when O won' do
       board = ["X", "O", " ", " ", "O", " ", " ", "O", "X"]
 
-      expect(winner(board)).to eq("O")
+      expect(winner?(board)).to eq("O")
     end
 
     it 'returns nil when no winner' do
       board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
 
-      expect(winner(board)).to be_nil
+      expect(winner?(board)).to be_nil
     end
   end
 end
