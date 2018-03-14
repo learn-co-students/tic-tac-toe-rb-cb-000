@@ -18,7 +18,9 @@ def play(board)
 end
 
 def turn(board)
-  index = input_to_index
+  puts "Please enter 1-9:"
+  inp = gets.strip
+  index = input_to_index(inp)
   if valid_move?(board, index)
     move(board, index, current_player(board))
     display_board(board)
@@ -27,14 +29,12 @@ def turn(board)
   end
 end
 
-def input_to_index
-  puts "Please enter 1-9:"
-  inp = gets.strip
+def input_to_index(inp)
   i = inp.to_i
   if (i > 0 && i <= 9)
-    i - 1
+    return i - 1
   else
-    input_to_index
+    return -1
   end
 end
 
@@ -43,19 +43,23 @@ def move(board, index, player_token)
 end
 
 def valid_move?(board, index)
-  !position_taken?(board, index)
+  if (index < 0 || index >= 9) then
+    return false
+  else
+    !position_taken?(board, index) ? true : false
+  end
 end
 
 def position_taken?(board, index)
-  (board[index] == "X" || board[index] == "0")
+  (board[index] == "X" || board[index] == "O")
 end
 
 def current_player(board)
-  turn_count(board) % 2 == 0 ? "X" : "0"
+  turn_count(board) % 2 == 0 ? "X" : "O"
 end
 
 def turn_count(board)
-  board.count{|cell| cell == "X" || cell == "0"}
+  board.count{|cell| cell == "X" || cell == "O"}
 end
 
 WIN_COMBINATIONS = [
@@ -71,7 +75,7 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   won = false
-  tokens = ["X", "0"]
+  tokens = ["X", "O"]
   tokens.each {
     |t| ( WIN_COMBINATIONS.each { |w|
           (if (board[w[0]] == t && board[w[1]] == t && board[w[2]] == t) then
@@ -87,8 +91,8 @@ def won?(board)
 end
 
 def winner(board)
-  x_winner = "_"
-  tokens = ["X", "0"]
+  x_winner = nil
+  tokens = ["X", "O"]
   tokens.each {
     |t| ( #puts "testing #{t} as a winner"
           WIN_COMBINATIONS.each { |w|
@@ -106,5 +110,13 @@ end
 
 def draw?(board)
   puts "turns = " + turn_count(board).to_s
-  (!won?(board) && turn_count(board) == 9) ? true : false
+  (!won?(board) && full?(board)) ? true : false
+end
+
+def full?(board)
+  turn_count(board) == 9 ? true : false
+end
+
+def over?(board)
+  (draw?(board) || won?(board)) ? true : false
 end
