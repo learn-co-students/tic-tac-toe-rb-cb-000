@@ -111,8 +111,7 @@ def play(board)
   end
   if draw?(board)
     puts "Cat's Game!"
-  end
-  if !draw?(board)
+  elsif !draw?(board)
     puts "Congratulations #{winner(board)}!"
   end
 end
