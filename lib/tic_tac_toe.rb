@@ -98,7 +98,7 @@ end
 
 def winner(board)
   if over?(board)
-    if !draw?(board)
+    if won?(board)
       winning_array = won?(board)
       board[winning_array[0]]
     end
