@@ -69,7 +69,6 @@ end
 def current_player(board)
   return turn_count(board).even? ? "O" : "X"
 end
-puts current_player(board)
 
 # Helper Method
 def position_taken?(board, index)
