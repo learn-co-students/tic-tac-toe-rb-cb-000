@@ -142,8 +142,3 @@ def play(board)
     puts "Game is a draw."
   end
 end
-
-
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-display_board(board)
-play(board)
