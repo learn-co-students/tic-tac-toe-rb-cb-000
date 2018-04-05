@@ -70,7 +70,7 @@ def current_player(board)
   if !board.include?("X") && !board.include?("O")
     return "X"
   end
-  
+
   return turn_count(board).even? ? "O" : "X"
 end
 
@@ -136,7 +136,7 @@ def winner(board)
 end
 
 def play(board)
-  until over(board)?
+  until over(board)? == true do
     turn(board)
   end
 
