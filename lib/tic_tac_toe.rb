@@ -1,6 +1,21 @@
 # Displaying board
 def display_board(board)
-  
+end
+
+def turn_count(board)
+  counter = 0
+  board.each do |player|
+    if player.strip != ""
+      counter += 1
+    end
+  end
+  return counter
+end
+      board = ["", " ", " ", " ", "", " ", " ", " ", " "]
+def current_player(board)
+  return turn_count(board).even? ? "O" : "X"
+end
+puts current_player(board)
 
 # Helper Method
 def position_taken?(board, index)
