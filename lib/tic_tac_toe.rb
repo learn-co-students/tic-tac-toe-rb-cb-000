@@ -142,6 +142,7 @@ def play(board)
     puts "Congratulations #{winner(board)}!"
   else
     puts "Game is a draw."
+  end
 end
 
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
