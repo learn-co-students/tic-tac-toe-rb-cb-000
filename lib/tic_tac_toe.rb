@@ -143,3 +143,5 @@ def play(board)
   else
     puts "Game is a draw."
 end
+
+play(board)
