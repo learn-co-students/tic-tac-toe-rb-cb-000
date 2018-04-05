@@ -67,6 +67,8 @@ def turn_count(board)
 end
 
 def current_player(board)
+  if !board.include?("X") && !board.include?("O")
+    return "X"
   return turn_count(board).even? ? "O" : "X"
 end
 
