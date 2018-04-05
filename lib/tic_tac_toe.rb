@@ -96,7 +96,6 @@ def won?(board)
        return combo
      end
    end
-
    return false
 end
 
@@ -135,7 +134,7 @@ def winner(board)
 end
 
 def play(board)
-  until over(board)? 
+  until over(board)?
     turn(board)
   end
 
