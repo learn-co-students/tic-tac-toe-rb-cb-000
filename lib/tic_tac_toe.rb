@@ -91,7 +91,7 @@ def won?(board)
      return nil
    end
 
-   WIN_COMBINATIONS.each do |combo|
+   win_combo.each do |combo|
      if match & combo == combo || match2 & combo == combo
        return combo
      end
