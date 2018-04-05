@@ -144,4 +144,5 @@ def play(board)
     puts "Game is a draw."
 end
 
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 play(board)
