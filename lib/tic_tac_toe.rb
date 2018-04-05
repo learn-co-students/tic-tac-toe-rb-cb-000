@@ -147,4 +147,5 @@ def play(board)
 end
 
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+display_board(board)
 play(board)
