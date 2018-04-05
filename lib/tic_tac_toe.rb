@@ -62,7 +62,7 @@ def turn_count(board)
       counter += 1
     end
   end
-  
+
   return counter
 end
 
@@ -127,7 +127,6 @@ def over?(board)
     return false
   end
 end
-match = [0,2,4,8]
 
 def winner(board)
   if won?(board) == false
