@@ -18,6 +18,44 @@ def valid_move?(board, index)
   return true
 end
 
+# code your input_to_index and move method here!
+def input_to_index(input)
+
+  begin
+    n = Integer(input)
+  rescue ArgumentError
+    return -1
+  end
+
+  if input.to_i == 0
+    return "0".to_i
+  end
+
+
+  return input.to_i - 1
+end
+
+def move(board, index, char = "X")
+  board[index] = char
+  #display_board(board)
+  return board
+end
+
+def turn(board)
+  puts "Please enter 1-9:"
+  input = gets.strip
+  converted_input = input_to_index(input)
+
+  until valid_move?(board, converted_input) == true do
+    puts "Wrong move. Please pick the right move."
+    input = gets.strip
+    converted_input = input_to_index(input)
+  end
+
+  move(board, converted_input)
+  display_board(board)
+end
+
 def turn_count(board)
   counter = 0
   board.each do |player|
