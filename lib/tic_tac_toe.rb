@@ -56,11 +56,13 @@ end
 
 def turn_count(board)
   counter = 0
+
   board.each do |player|
     if player.strip != ""
       counter += 1
     end
   end
+  
   return counter
 end
 
@@ -134,7 +136,7 @@ def winner(board)
 end
 
 def play(board)
-  until over(board)? do
+  until over(board)?
     turn(board)
   end
 
