@@ -97,7 +97,7 @@ def won?(board)
        return combo
      end
    end
-   
+
    return false
 end
 
@@ -142,7 +142,7 @@ def play(board)
 
   if won?(board)
     puts "Congratulations #{winner(board)}!"
-  else
+  elsif draw?(board)
     puts "Game is a draw."
   end
 end
