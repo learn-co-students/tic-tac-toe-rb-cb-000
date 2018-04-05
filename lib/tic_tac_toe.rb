@@ -59,6 +59,7 @@ def turn(board)
   else
     move(board, converted_input, current_player(board))
   end
+  
   display_board(board)
 end
 
