@@ -132,6 +132,8 @@ def winner(board)
 end
 
 def play(board)
-  display_board
+  display_board(board)
+  until over(board)? do
+    turn(board)
+  end
 end
-
