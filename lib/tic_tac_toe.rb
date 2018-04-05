@@ -8,6 +8,16 @@ def display_board(arrays)
   puts " #{arrays[6]} | #{arrays[7]} | #{arrays[8]} "
 end
 
+def valid_move?(board, index)
+  if position_taken?(board, index)
+    return false
+  elsif !index.between?(0,8)
+    return false
+  end
+
+  return true
+end
+
 def turn_count(board)
   counter = 0
   board.each do |player|
