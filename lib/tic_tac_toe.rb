@@ -99,9 +99,22 @@ end
 # Define your play method
 
 def play(board)
-    #input = gets
-    while !over?(board)
+
+    if won?(board)
+        if winner(board) == "X"
+        puts "Congratulations X!"
+        else
+        puts "Congratulations O!"
+        end
+
+    end
+    if draw?(board)
+        puts "Cat's Game!"
+    end
+
+    until over?(board)
         turn(board)
+
     if won?(board)
         if winner(board) == "X"
         puts "Congratulations X!"
@@ -111,9 +124,10 @@ def play(board)
         break
     end
     if draw?(board)
-        puts "Cat's game!"
+        puts "Cat's Game!"
         break
     end
-    end
+
+end
 
 end
