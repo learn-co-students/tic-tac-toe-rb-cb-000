@@ -30,7 +30,7 @@ def full?(board)
             return false
         end
     end
-    return true
+    true
 end
 
 def draw?(board)
@@ -42,9 +42,7 @@ def over?(board)
 end
 
 def winner(board)
-    if won?(board)
-        return board[won?(board)[0]]
-    end
+    board[won?(board)[0]] if won?(board)
 end
 
 def display_board(board)
@@ -60,11 +58,7 @@ def input_to_index(user_input)
 end
 
 def current_player(board)
-    if turn_count(board) % 2 == 0
-        return "X"
-    else
-        return "O"
-    end
+    turn_count(board) % 2 == 0 ? "X" : "O"
 end
 
 def move(board, index, current_player)
@@ -100,34 +94,14 @@ end
 
 def play(board)
 
-    if won?(board)
-        if winner(board) == "X"
-        puts "Congratulations X!"
-        else
-        puts "Congratulations O!"
-        end
-
-    end
-    if draw?(board)
-        puts "Cat's Game!"
-    end
-
-    until over?(board)
+    while !over?(board)
         turn(board)
+        break if draw?(board)
+    end
 
     if won?(board)
-        if winner(board) == "X"
-        puts "Congratulations X!"
-        else
-        puts "Congratulations O!"
-        end
-        break
-    end
-    if draw?(board)
+        puts "Congratulations #{winner(board)}!"
+    else
         puts "Cat's Game!"
-        break
     end
-
-end
-
 end
