@@ -59,7 +59,7 @@ describe './lib/tic_tac_toe.rb' do
 
       play(board)
     end
-=begin
+
     it 'checks if the game is draw after every turn' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
       allow($stdout).to receive(:puts)
@@ -69,7 +69,7 @@ describe './lib/tic_tac_toe.rb' do
 
       play(board)
     end
-=end
+
 
     it 'stops playing if someone has won' do
       board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
