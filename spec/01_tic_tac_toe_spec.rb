@@ -64,7 +64,7 @@ describe './lib/tic_tac_toe.rb' do
     it 'does not allow for a default third argument' do
       board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
-      expect { move(board, 0) }.to raise_error(ArgumentError)
+      expect { move(board) }.to raise_error(ArgumentError)
     end
 
     it 'takes three arguments: board, position, and player token' do
@@ -138,7 +138,7 @@ describe './lib/tic_tac_toe.rb' do
 
       expect(self).to receive(:gets).and_return('1')
 
-      turn(board)
+      turn(board,'X')
 
       expect(board).to match_array(['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
     end
@@ -151,7 +151,7 @@ describe './lib/tic_tac_toe.rb' do
       expect(self).to receive(:gets).and_return('invalid')
       expect(self).to receive(:gets).and_return('1')
 
-      turn(board)
+      turn(board,'X')
     end
   end
 
